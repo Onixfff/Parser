@@ -12,7 +12,7 @@ namespace Parser.Core
         public HtmlLoader(IParserSettings settings)
         {
             client = new HttpClient();
-            url = $"{settings.BaseUrl}/{settings.Prefix}/";
+            url = $"{settings.BaseUrl}?{settings.Prefix}";
         }
 
         public async Task<string> GetSourceByPageId(int id)

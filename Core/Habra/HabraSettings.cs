@@ -9,9 +9,10 @@ namespace Parser.Core.Habra
             EndPoint = end;
         }
 
-        public string BaseUrl { get; set; } = "https://habrahabr.ru";
-
-        public string Prefix { get; set; } = "page{CurrentId}";
+        public string BaseUrl { get; set; } = "https://www.rts-tender.ru/poisk/etps/rts-tender/";
+        //https://habrahabr.ru
+        //https://www.rts-tender.ru/poisk/etps/rts-tender/
+        public string Prefix { get; set; } = "page={CurrentId}";
 
         public int StartPoint { get; set; }
 

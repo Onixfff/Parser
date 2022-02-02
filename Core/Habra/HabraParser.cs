@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AngleSharp.Dom.Html;
+using AngleSharp.Html.Dom;
 
 namespace Parser.Core.Habra
 {
@@ -12,7 +12,8 @@ namespace Parser.Core.Habra
         public string[] Parse(IHtmlDocument document)
         {
             var list  = new List<string>();
-            var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("post__title_link"));
+            //tm-article-snippet__title-link
+            IEnumerable<AngleSharp.Dom.IElement>? items = document.QuerySelectorAll("div").Where(item => item.ClassName != null && item.ClassName.Contains("card-item__title"));
 
             foreach(var item in items)
             {

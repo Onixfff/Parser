@@ -1,4 +1,5 @@
-﻿using AngleSharp.Parser.Html;
+﻿using AngleSharp.Html;
+using AngleSharp.Html.Parser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -90,9 +91,10 @@ namespace Parser.Core
                 var source = await loader.GetSourceByPageId(i);
                 var domParser = new HtmlParser();
 
-                var document = await domParser.ParseAsync(source);
+                var document = await domParser.ParseDocumentAsync(source);
+                //var document = await domParser.ParseAsync(source);
 
-                var result = parser.Parse(document);
+                T? result = parser.Parse(document);
 
                 OnNewData?.Invoke(this, result);
             }
